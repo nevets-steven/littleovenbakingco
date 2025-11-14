@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function ItemCard({
-    id, name, price, onQuantityChange
+    imageURL, id, name, price, onQuantityChange
 })
 
 {
@@ -19,7 +19,13 @@ export default function ItemCard({
     return (
     <div className="item-card">
         <div className="item-image">
-            <img src="../assets/react.svg" alt="Apple Cider Cake" />
+            {
+                imageURL ? (
+                    <img src={imageURL} alt={name} />
+                ) : (
+                    <div className="placeholder-image">No Image</div>
+                )
+            }
         </div>
         {/* Name and Price */}
         <h3>{name}</h3>
