@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import item1Img from "./assets/applecidercake.jpeg"
-import item2Img from "./assets/cookiecake.jpeg"
 import viteLogo from '/vite.svg'
 import './App.css'
-import ItemCard from '../components/ItemCard'
+import ItemRow from './components/ItemRow'
+import item1Img from './assets/applecidercake.jpeg'
+import item2Img from './assets/cookiecake.jpeg'
+
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -34,22 +35,27 @@ import ItemCard from '../components/ItemCard'
 //     </>
 //   )
 // }
-
 function App(){
   return(
     <>
-    <ItemCard 
-    id="item1"
-    name="Apple Cider Cake"
-    price={35}
-    imageURL={item1Img}/>
-    <ItemCard 
-    id="item2"
-    name="Cookie Cake"
-    price={25}
-    imageURL={item2Img}/>
+    <ItemRow 
+    item={{
+      id: 1,
+      name: "Apple Cider Cake",
+      price: 30.00,
+      image: item1Img
+    }}
+    onQuanityChange={() => {}}/>
+    <ItemRow
+    item={{
+      id: 2,
+      name: 'Pumpkin Frosting Cookie Cake',
+      price: 25.00,
+      image: item2Img
+    }}
+    />
     </>
   )
 }
 
-export default App
+export default App;
