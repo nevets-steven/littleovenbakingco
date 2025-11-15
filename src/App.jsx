@@ -2,10 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import ItemRow from './components/ItemRow'
-import BundleRow from './components/BundleRow'
-import item1Img from './assets/applecidercake.jpeg'
-import item2Img from './assets/cookiecake.jpeg'
+import OrderForm from './components/OrderForm'
 
 
 // function App() {
@@ -38,31 +35,7 @@ import item2Img from './assets/cookiecake.jpeg'
 // }
 function App(){
   return(
-    <>
-    <ItemRow 
-    item={{
-      id: 1,
-      name: "Apple Cider Cake",
-      price: 30.00,
-      image: item1Img
-    }}
-    onQuanityChange={() => {}}/>
-    <ItemRow
-    item={{
-      id: 2,
-      name: 'Pumpkin Frosting Cookie Cake',
-      price: 25.00,
-      image: item2Img
-    }}
-    />
-    <BundleRow 
-    title="Thanksgiving Bundle Duo"
-    image1={item1Img}
-    image2={item2Img}
-    price={50}
-    onQuanityChange={(qty) => console.log('Bundle qty:' , qty)}
-      />
-    </>
+    <OrderForm />
   )
 }
 
