@@ -1,0 +1,50 @@
+.bundle-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  background: #fff;
+}
+
+.bundle-images {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bundle-images img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.bundle-info {
+  flex: 1;
+}
+
+.bundle-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.bundle-price {
+  margin: 4px 0 0;
+  font-weight: bold;
+}
+
+.bundle-qty {
+  display: flex;
+  flex-direction: column;
+}
+
+.bundle-qty input {
+  width: 60px;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}

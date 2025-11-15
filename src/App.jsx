@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import ItemRow from './components/ItemRow'
+import BundleRow from './components/BundleRow'
 import item1Img from './assets/applecidercake.jpeg'
 import item2Img from './assets/cookiecake.jpeg'
 
@@ -54,6 +55,13 @@ function App(){
       image: item2Img
     }}
     />
+    <BundleRow 
+    title="Thanksgiving Bundle Duo"
+    image1={item1Img}
+    image2={item2Img}
+    price={50}
+    onQuanityChange={(qty) => console.log('Bundle qty:' , qty)}
+      />
     </>
   )
 }
