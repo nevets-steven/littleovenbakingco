@@ -6,7 +6,7 @@ import appleCiderCakeImg from '../assets/applecidercake.jpeg';
 import cookieCakeImg from '../assets/cookiecake.jpeg';
 
 
-export default function OrderForm(){
+export default function OrderForm({ onReview }){
 // Inventory
 
 const items = [
@@ -68,8 +68,9 @@ const handleSubmit = (e) => {
         },
     };
 
-    console.log('order submitted');
-    console.log(payload);
+    if (onReview){
+        onReview(payload);
+    }
 }
 return(
     <form action="" className="order-form" onSubmit={handleSubmit}>
@@ -148,7 +149,7 @@ return(
             </div>
         </section>
         <button type="submit" className="submit-btn">
-            Submit Order
+            Review Order
         </button>
     </form>
 )
