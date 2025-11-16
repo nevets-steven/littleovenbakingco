@@ -18,7 +18,7 @@ const items = [
     },
     {
         id: 'cookie-cake',
-        name: 'Pumpkin Frosting Cookie Cake',
+        name: 'Pumpkin Cookie Cake With Frosting',
         price: 25,
         image: cookieCakeImg,
     },
@@ -54,18 +54,16 @@ const handleCustomerChange = (field, value) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-
     const payload = {
         customer,
         fulfillment,
         timeSlot,
-        address,
         items: items.map((item) => ({
             ...item,
             quantity: itemQuantities[item.id] || 0,
         })),
         bundle: {
-            title: "Holiday Bundle",
+            title: "Thanksgiving Bundle",
             price: 50,
             quantity: bundleQty,
             images: [appleCiderCakeImg, cookieCakeImg]
@@ -117,9 +115,9 @@ return(
         </section>
         {/* Bundle */}
         <section className="section">
-            <h2>Holiday Bundle</h2>
+            <h2>Holiday Bundles</h2>
             <BundleRow 
-            title="Holiday Bundle"
+            title="Thanksgiving Bundle"
             image1={appleCiderCakeImg}
             image2={cookieCakeImg}
             price={50}
