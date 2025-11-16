@@ -2,6 +2,7 @@ export default function ReviewOrder({data, onEdit, onConfirm}){
     const {
         customer,
         fulfillment,
+        timeSlot,
         items,
         bundle
     } = data;
@@ -57,12 +58,24 @@ export default function ReviewOrder({data, onEdit, onConfirm}){
                 <p>
                     <strong>Phone: </strong> {customer.phone}
                 </p>
+                {fulfillment === "delivery" && customer.address && (
+                    <p>
+                        <strong>Delivery Address: </strong> {customer.address}
+                    </p>
+                )}
             </section>
 
             {/* Fulfillment */}
             <section className="section">
                 <h2>Pickup / Delivery</h2>
                 <p>{fulfillment === 'pickup' ? 'Pickup' : 'Delivery'}</p>
+                {timeSlot && (
+                    <p>
+                        <strong>
+                            Time: 
+                        </strong> {timeSlot}
+                    </p>
+                )}
             </section>
 
             {/* Action Buttons */}
