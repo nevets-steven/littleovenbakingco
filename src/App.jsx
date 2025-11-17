@@ -38,7 +38,7 @@ import OrderSuccess from './components/OrderSuccess'
 function App(){
   const [stage, setStage] = useState('form');
   const [orderData, setOrderData] = useState(null);
-  const GSCRIPT_URL = import.meta.env.VITE_GSCRIPT_ENDPOINT;
+  const GSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOGJ6fE8D85XPmW2pQ2OFVPbIVlpva9Cjcxb4dpMRnRwtH_h5jgHjILXQi9-F_14s7/exec';
 
 
   const handleReview = (data) => {
@@ -60,32 +60,25 @@ function App(){
       return;
     }
 
-    try{
-      const response = await fetch(GSCRIPT_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-        },
-        body: JSON.stringify(orderData),
-        }
-      );
-      let result = null;
-      try{
-        result = await response.json();
-        console.log('Google SCript Response: ', result);
-      }
-      catch{
-      }
-      if (!response.ok || (result && result.status === 'error')){
-        throw new Error(result?.message || 'Non-OK Response from Google App Script');
-      }
-      setStage('success');
-    }
-    catch (err){
-      console.error('Error submitting order: ', err);
-      alert("There was an error submitting your order. Please try again.")
-    }
+try {
+    await fetch(GSCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // 👈 key for avoiding CORS errors
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8',
+      },
+      body: JSON.stringify(orderData),
+    });
+
+    // In no-cors mode we can't inspect the response.
+    // If fetch didn't throw, we assume it got to Apps Script.
+    setStage('success');
+  } catch (err) {
+    console.error('Error submitting order:', err);
+    alert('There was an error submitting your order. Please try again.');
   }
+    };
+
   return(
     <>
     {stage === "form" && <OrderForm onReview={handleReview} />}
