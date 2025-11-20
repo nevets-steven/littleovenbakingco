@@ -1,5 +1,4 @@
 import { useState } from "react";
-import './BundleRow.css'
 
 export default function BundleRow({title, image1, image2, price, onQuantityChange}){
     const [qty, setQty] = useState(0);
