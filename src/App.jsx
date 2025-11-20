@@ -38,7 +38,7 @@ import OrderSuccess from './components/OrderSuccess'
 function App(){
   const [stage, setStage] = useState('form');
   const [orderData, setOrderData] = useState(null);
-  const GSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDE1-dTWYZ2zUWTDdNXuktojcNrhNGNx1Rb1KaiZ1zjtoK4HjoOnVqBMdscE_uEr1i/exec';
+  const GSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxOcDiGVA0I9laJkbiXzvWwCHlze-UW7Sm2zj6wR8v1bLnPI9yoiS6V30SzDJZS_IlR/exec';
 
 
   const handleReview = (data) => {
