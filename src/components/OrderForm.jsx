@@ -18,7 +18,7 @@ const items = [
     },
     {
         id: 'cookie-cake',
-        name: 'Pumpkin Cookie Cake With Frosting',
+        name: 'Pumpkin Chocolate Chip Cookie Cake',
         price: 25,
         image: cookieCakeImg,
     },
